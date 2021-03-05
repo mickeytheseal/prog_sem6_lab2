@@ -28,17 +28,27 @@ public class Bank {
 
     public String getClientData(String client){
         int accounts_amount = 0;
-        int rubles = 0;
-        int dollars = 0;
-        int euros = 0;
-        Date last_account_expires;
+        StringBuilder acclist = new StringBuilder("");
+        double rubles = 0;
+        double dollars = 0;
+        double euros = 0;
+        Date last_account_expires = new Date(0);
 
         for (Account account: data) {
             if (account.getOwner().equals(client)){
                 accounts_amount++;
+                acclist.append(account.getNumber() + " ");
+                switch (account.getType()){
+                    case RUB -> rubles += account.getMoney();
+                    case USD -> dollars += account.getMoney();
+                    case EUR -> euros += account.getMoney();
+                }
+                if (account.getExpiration_date().after(last_account_expires)){ last_account_expires = account.getExpiration_date(); }
             }
         }
-        return null;
+        return String.format("Owner: %s\nAccounts: [ " + acclist.toString() + " ]\n" +
+                "Summary: %.2f₽ %.2f$ %.2f€\n" +
+                "Last account expiration date: %s",client,rubles,dollars,euros,last_account_expires.toString());
     }
 
     public String getData(){

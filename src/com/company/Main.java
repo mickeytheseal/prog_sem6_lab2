@@ -9,14 +9,12 @@ public class Main {
         String owner2 = "Биба Боба Пажилая";
         Account acc1 = new Account(owner1, 4,AccType.RUB);
         acc1.replenish(80);
-        Account acc2 = new Account(owner2, 6,AccType.USD);
-        acc2.replenish(1);
-        Account acc3 = Account.combine(acc2,acc1);
+        Account acc2 = new Account(owner1, 6,AccType.USD);
+        acc2.replenish(20);
 
         Bank bank = new Bank();
         bank.addAccount(acc1);
         bank.addAccount(acc2);
-        bank.addAccount(acc3);
 
         System.out.println("infoByIndex/infoByNumber [index/account number]\n" +
                 "withdraw/replenish [account number] [amount]\n" +
@@ -55,6 +53,10 @@ public class Main {
                     bank.addAccount(Account.combine(bank.findByNumber(id), bank.findByNumber(add_account)));
                     bank.deleteAccount(bank.findByNumber(id));
                     bank.deleteAccount(bank.findByNumber(add_account));
+                }
+                case "getClientData" -> {
+                    String client = input[1] + " " + input[2] + " " + input[3];
+                    System.out.println(bank.getClientData(client));
                 }
                 case "showData" -> System.out.println(bank.getData());
                 case "exit" -> flag = false;

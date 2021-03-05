@@ -72,7 +72,9 @@ public class Account {
 
     public int getNumber(){ return account_num; }
     public String getOwner(){ return owner; }
+    public double getMoney(){return money_amount;}
     public AccType getType(){ return type; }
+    public Date getExpiration_date(){ return expiration_date; }
 
     //Вывод информации
     public String getInfo(){

@@ -3,18 +3,17 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Account {
-    private int account_num;
+    private final int account_num;
     private double money_amount = 0;
     private final String owner;
     private final Date creation_date;
-    private int duration;
-    private Date expiration_date;
-    private AccType type;
+    private final int duration;
+    private final Date expiration_date;
+    private final AccType type;
     private boolean isExpired;
 
     //Конструктор
     public Account(String owner, int duration, AccType type){
-        //this.account_num = account_num;
         this.owner = owner;
         this.duration = duration;
         this.type = type;
@@ -29,9 +28,7 @@ public class Account {
         System.out.println("Created account " + account_num);
     }
 
-
     public Account(String owner, int duration,double money_amount, AccType type){
-        this.account_num = account_num;
         this.owner = owner;
         this.money_amount = money_amount;
         this.duration = duration;
@@ -78,9 +75,13 @@ public class Account {
 
     //Вывод информации
     public String getInfo(){
-        return String.format("Account %d\nOwner: %s\n" +
-                "Created: %s\nDuration: %d\n" +
-                "Expiration date: %s\nMoney amount: %.2f%s",
+        return String.format("""
+                        Account %d
+                        Owner: %s
+                        Created: %s
+                        Duration: %d
+                        Expiration date: %s
+                        Money amount: %.2f%s""",
                 account_num,owner,creation_date.toString(),duration,
                 expiration_date,money_amount, type.getSign());
     }

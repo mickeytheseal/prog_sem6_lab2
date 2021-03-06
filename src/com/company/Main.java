@@ -16,9 +16,10 @@ public class Main {
         bank.addAccount(acc1);
         bank.addAccount(acc2);
 
-        System.out.println("infoByIndex/infoByNumber [index/account number]\n" +
+        System.out.println("Commands list:\ninfoByIndex/infoByNumber [index/account number]\n" +
                 "withdraw/replenish [account number] [amount]\n" +
                 "combine [main_account] [add_account]\n" +
+                "getClientData [client]\n" +
                 "showData, exit");
         Scanner in = new Scanner(System.in);
         boolean flag = true;

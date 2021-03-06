@@ -46,9 +46,10 @@ public class Bank {
                 if (account.getExpiration_date().after(last_account_expires)){ last_account_expires = account.getExpiration_date(); }
             }
         }
-        return String.format("Owner: %s\nAccounts: [ " + acclist.toString() + " ]\n" +
-                "Summary: %.2f₽ %.2f$ %.2f€\n" +
-                "Last account expiration date: %s",client,rubles,dollars,euros,last_account_expires.toString());
+        return String.format("Client %s has %d accounts\nAccounts list: [ " + acclist.toString() + " ]\n" +
+                "Financial summary: %.2f₽ %.2f$ %.2f€\n" +
+                "Last account expiration date: %s",
+                client,accounts_amount,rubles,dollars,euros,last_account_expires.toString());
     }
 
     public String getData(){

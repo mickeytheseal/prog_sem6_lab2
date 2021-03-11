@@ -6,13 +6,13 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
         String owner1 = "Петров Василий Николаевич";
-        String owner2 = "Забавная Анна Петровна";
+        String owner2 = "Иванова Анна Петровна";
         Account acc1 = new Account(owner1, 4,AccType.RUB);
         acc1.replenish(80);
         Account acc2 = new Account(owner1, 6,AccType.USD);
         acc2.replenish(20);
         Account acc3 = new Account(owner2, 6,AccType.EUR);
-        acc2.replenish(30);
+        acc3.replenish(30);
 
         Bank bank = new Bank();
         bank.addAccount(acc1);

@@ -10,7 +10,6 @@ public class Account {
     private final int duration;
     private final Date expiration_date;
     private final AccType type;
-    private boolean isExpired;
 
     //Конструктор
     public Account(String owner, int duration, AccType type){
